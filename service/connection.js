@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 
 export async function connectToDB() {
-    const db = process.env.DB_ADDRESS + process.env.DBNAME
+    const db = process.env.DB_ADDRESS
     const options = {
         useFindAndModify: false,
         useNewUrlParser: true,
