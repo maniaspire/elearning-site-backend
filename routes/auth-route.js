@@ -9,10 +9,10 @@ const tokenService = new Token()
 
 const authController = new AuthController()
 
-router.post('/login', use(authController.userLogin))
-router.put('/update-password', tokenService.verifyToken, use(authController.updatePassword))
+router.post('/api/login', use(authController.userLogin))
+router.put('/api/update-password', tokenService.verifyToken, use(authController.updatePassword))
 
-router.get('/verify-user/:id', use(authController.verifyUser))
-router.put('/forgot-password', use(authController.forgotPassword))
+router.get('/api/verify-user/:id', use(authController.verifyUser))
+router.put('/api/forgot-password', use(authController.forgotPassword))
 
 export default router

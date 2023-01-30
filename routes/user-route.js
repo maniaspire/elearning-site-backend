@@ -9,13 +9,13 @@ const router = Router()
 const userController = new UserController()
 const tokenService = new Token()
 
-router.get('/my-details/:id',
+router.get('/api/my-details/:id',
     [tokenService.verifyToken], use(userController.getUserData))
-router.put('/update-profile/:id',
+router.put('/api/update-profile/:id',
     [tokenService.verifyToken], use(userController.updateUser))
-router.get('/pending-professor',
+router.get('/api/pending-professor',
     [tokenService.verifyToken, tokenService.isAdmin], use(userController.getPendingProfessor))
-router.put('/update-permission',
+router.put('/api/update-permission',
     [tokenService.verifyToken, tokenService.isAdmin], use(userController.userPermission))
 
 export default router

@@ -8,21 +8,21 @@ const router = Router()
 const courseController = new CourseController()
 const tokenService = new Token()
 
-router.get('/course',
+router.get('/api/course',
     [tokenService.verifyToken], use(courseController.getAvailableCourse))
-router.get('/course-topic/:name',
+router.get('/api/course-topic/:name',
     [tokenService.verifyToken], use(courseController.getAllTopics))
 
-router.put('/update-topic',
+router.put('/api/update-topic',
     [tokenService.verifyToken, tokenService.isProfessor], use(courseController.updateParticularTopic))
-router.post('/picture',
+router.post('/api/picture',
     [uploads.single('avator'), tokenService.verifyToken], use(courseController.picUpload))
-router.post('/upload-course',
+router.post('/api/upload-course',
     [tokenService.verifyToken, tokenService.isProfessor], use(courseController.uploadCourse))
 
-router.delete('/delete-topic',
+router.delete('/api/delete-topic',
     [tokenService.verifyToken, tokenService.isAdmin], use(courseController.deleteParticularTopic))
-router.delete('/delete-course',
+router.delete('/api/delete-course',
     [tokenService.verifyToken, tokenService.isAdmin], use(courseController.deleteEntireCourse))
 
 export default router

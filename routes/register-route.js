@@ -6,6 +6,6 @@ const router = Router()
 
 const registerController = new RegisterController()
 
-router.post('/register', use(registerController.register))
+router.post('/api/register', use(registerController.register))
 
-export default router 
+export default router
